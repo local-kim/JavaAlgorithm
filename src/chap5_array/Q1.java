@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class Q1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> A = Arrays.stream(sc.nextLine().split(" ")).map(s -> Integer.parseInt(s)).collect(Collectors.toList());
+        List<Integer> A = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
         int i = Integer.parseInt(sc.nextLine());
 
         int pivot = A.get(i);

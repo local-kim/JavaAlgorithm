@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class Q2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> A = Arrays.stream(sc.nextLine().split(" ")).map(s -> Integer.parseInt(s)).collect(Collectors.toList());
+        List<Integer> A = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
 
         // 마지막 자리 + 1 해주기
         A.set(A.size() - 1, A.get(A.size() - 1) + 1);
