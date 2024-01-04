@@ -16,7 +16,9 @@ import static java.lang.Math.abs;
  * [-1, 4, 7, 5, 7, 3, 9, 5, 2, 5, 8, 9, 6, 7, 6, 4, 1, 2, 9, 2, 7]을 반환해야한다.
  * 힌트 : 초등학생 때 배운 곱셈 연산을 그대로 적용해보자.
  *
- * 입력 : 1 9 3 7 0 7 7 2 1\n-7 6 1 8 3 8 2 5 7 2 8 7\n
+ * <입력>
+ * 1 9 3 7 0 7 7 2 1
+ * -7 6 1 8 3 8 2 5 7 2 8 7
  */
 public class Q3 {
     public static void main(String[] args) {
@@ -52,6 +54,10 @@ public class Q3 {
                 break;
             }
             answer.remove(i);
+        }
+
+        if(answer.isEmpty()) {
+            answer = Arrays.asList(0);
         }
 
         // 부호 붙이기
