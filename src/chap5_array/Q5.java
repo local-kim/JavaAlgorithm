@@ -25,26 +25,22 @@ public class Q5 {
         List<Integer> array = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
 
         int prev = array.get(0);
+        int idx = 1;
 
-        // 중복인 원소 0으로 만들기
         for(int i = 1; i < array.size(); i++) {
-            // 중복이면
-            if(array.get(i) == prev) {
-                array.set(i, 0);
-            }
             // 중복이 아니면
-            else {
+            if(array.get(i) != prev) {
+                // 배열에 앞부터 채우기
+                array.set(idx++, array.get(i));
                 prev = array.get(i);
             }
         }
 
-        System.out.println(array);
-
-        // 0인 원소 오른쪽으로 밀기
-        for(int i = 1; i < array.size(); i++) {
-            if(array.get(i) == 0) {
-
-            }
+        // 배열에서 채워지지 않은 부분 0으로 채우기
+        for(int i = idx; i < array.size(); i++) {
+            array.set(i, 0);
         }
+
+        System.out.println(array);
     }
 }
