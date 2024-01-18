@@ -21,13 +21,14 @@ public class Q1 {
         }
 
         System.out.println(stack.max());
+
+        System.out.println(stack.pop());
     }
 
     static class Stack {
         Deque<Integer> stack = new LinkedList<>();
 
-        public Stack() {
-        }
+        Stack() {}
 
         void push(Integer data) {
             stack.addFirst(data);
@@ -44,7 +45,7 @@ public class Q1 {
             int max = Integer.MIN_VALUE;
 
             for(int data : stack) {
-                if(max > data) {
+                if(max < data) {
                     max = data;
                 }
             }
