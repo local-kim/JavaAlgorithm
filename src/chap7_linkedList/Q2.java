@@ -1,5 +1,10 @@
 package chap7_linkedList;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
 /**
  * [문제 7.2] 부분 리스트 하나 뒤집기
  * 리스트의 부분 리스트를 역순으로 재배열하는 문제를 풀어보자.
@@ -9,6 +14,67 @@ package chap7_linkedList;
  */
 public class Q2 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Integer> input = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        Integer s = sc.nextInt();
+        Integer f = sc.nextInt();
 
+        // 연결리스트 만들기
+        Node<Integer> head = new Node<>();
+        input.forEach(i -> add(head, i));
+
+        print(head);
+
+        // 뒤집기
+        Node<Integer> tmp1 = new Node<>(), tmp2 = new Node<>(), tmp3 = new Node<>();   // s-1번째와 s번째 노드 저장할 변수
+
+        Node<Integer> p = head;
+        int idx = 1;
+
+        while(p.next != null) {
+//            if(idx == s - 1) {
+//                // s-1번째 저장해뒀다가 next에 f번째 넣기
+//                tmp1 = p;
+//            }
+//            else if(idx == s) {
+//                // f+1번째의 주소 넣기
+//                tmp2 = p;
+////                p.next.next = p;    // p.next가 달라져버림
+//                tmp3 = p.next.next;
+//                p.next.next = p;
+//            }
+//            else if(idx > s && idx < f) {
+//                // idx-1번째의 주소 넣기
+//                tmp3.next = p;
+////                p.next.next = p;
+//            }
+//            else if(idx == f) {
+//                tmp1.next = p;
+//            }
+//            else if(idx == f + 1) {
+//                tmp2.next = p;
+//            }
+//
+//            idx++;
+//            p = p.next;
+        }
+
+        print(head);
+    }
+
+    public static void add(Node<Integer> p, int i) {
+        while(p.next != null) {
+            p = p.next;
+        }
+
+        p.next = new Node<>(i);
+    }
+
+    public static void print(Node<Integer> p) {
+        // 헤드 노드 다음부터
+        while(p.next != null) {
+            System.out.print(p.next.data + " ");
+            p = p.next;
+        }
     }
 }
