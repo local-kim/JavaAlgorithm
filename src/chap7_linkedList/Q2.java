@@ -25,38 +25,24 @@ public class Q2 {
 
         print(head);
 
-        // 뒤집기
-        Node<Integer> tmp1 = new Node<>(), tmp2 = new Node<>(), tmp3 = new Node<>();   // s-1번째와 s번째 노드 저장할 변수
+        // 부분리스트를 뒤집은 연결리스트
+        Node<Integer> subHead = new Node<>();
 
         Node<Integer> p = head;
         int idx = 1;
 
         while(p.next != null) {
-//            if(idx == s - 1) {
-//                // s-1번째 저장해뒀다가 next에 f번째 넣기
-//                tmp1 = p;
-//            }
-//            else if(idx == s) {
-//                // f+1번째의 주소 넣기
-//                tmp2 = p;
-////                p.next.next = p;    // p.next가 달라져버림
-//                tmp3 = p.next.next;
-//                p.next.next = p;
-//            }
-//            else if(idx > s && idx < f) {
-//                // idx-1번째의 주소 넣기
-//                tmp3.next = p;
-////                p.next.next = p;
-//            }
-//            else if(idx == f) {
-//                tmp1.next = p;
-//            }
-//            else if(idx == f + 1) {
-//                tmp2.next = p;
-//            }
-//
-//            idx++;
-//            p = p.next;
+            if(idx == s) {
+                subHead.next = p.next;
+                p.next.next = subHead.next;
+            }
+            else if(idx > s && idx < f) {
+                p.next.next = subHead.next;
+                subHead.next = p.next;
+            }
+            else if(idx == f) {
+
+            }
         }
 
         print(head);
