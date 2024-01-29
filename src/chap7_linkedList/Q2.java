@@ -32,17 +32,23 @@ public class Q2 {
         int idx = 1;
 
         while(p.next != null) {
+            Node<Integer> next = p.next;
+
             if(idx == s) {
-                subHead.next = p.next;
-                p.next.next = subHead.next;
+                subHead.next = p;
+//                p.next.next = subHead.next;
             }
             else if(idx > s && idx < f) {
-                p.next.next = subHead.next;
-                subHead.next = p.next;
+                p.next = subHead.next;
+                subHead.next = p;
             }
             else if(idx == f) {
-
+                p.next = subHead.next;
+                subHead.next = p;
             }
+
+            p = next;
+            idx++;
         }
 
         print(head);
